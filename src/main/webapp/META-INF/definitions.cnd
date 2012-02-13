@@ -1,7 +1,7 @@
 <jnt = 'http://www.jahia.org/jahia/nt/1.0'>
 
 [jnt:qcmAnswer] > jnt:content
- - label (string)
+ - label (string) mandatory i18n
  - goodAnswer (boolean) = false
 
 [jnt:qcmAnswersList] > jnt:content, jmix:list
@@ -9,11 +9,11 @@
  + * (jnt:qcmAnswer) = jnt:qcmAnswer
 
 [jnt:qcmQuestion] > jnt:content
- - question (string) mandatory
+ - question (string) mandatory i18n
  + answerslist (jnt:qcmAnswersList) = jnt:qcmAnswersList autocreated
 
 [jnt:qcm] > jnt:content, mix:title, jmix:socialComponent
- - qcmFormName (string) mandatory
+ - qcmFormName (string) mandatory i18n
  + * (jnt:qcmQuestion) = jnt:qcmQuestion
 
 

@@ -50,7 +50,7 @@
 
             var statDiv = document.createElement("div");
             statDiv.id = "resultsContainer_${currentNode.name}";
-            statDiv.innerHTML = "your mark is "+ answers;
+            statDiv.innerHTML = "<p><h3><fmt:message key="label.yourScoreIs"/> "+ answers+"</h3></p>";
             
 
             document.getElementById("results_${currentNode.name}").appendChild(statDiv);
@@ -66,27 +66,27 @@
 		<h2>${currentNode.properties["qcmFormName"].string}</h2>
 		
 	    <div id="qcmForm_${currentNode.identifier}">
-	        <c:if test="${not renderContext.editMode}">
+<c:if test="${not renderContext.editMode}">
 	        <div id="formContainer_${currentNode.name}">
 	            <form id="form_${currentNode.name}" name="form_${currentNode.name}" method="post" >
 	                <input type="hidden" name="jcrReturnContentType" value="json"/>
-                </c:if>
+</c:if>
 		
-		        <c:forEach items="${currentNode.nodes}" var="qcmQuestion">
-			    	<c:if test="${jcr:isNodeType(qcmQuestion,'jnt:qcmQuestion')}">
-			        	<template:module node="${qcmQuestion}" view="default"/>
-			    	</c:if>
-			    </c:forEach>
-			    <c:if test="${renderContext.editMode}">
-		    		<template:module path="*"/>
-				</c:if>
-				
-               	<c:if test="${not renderContext.editMode}">
-                <div class="validation"></div>
-                <br />
-                <input class="button" type="button" value="Submit" onclick="doQcm($('${currentNode.name}_voteAnswer').value);" />
-            </form>
+			        <c:forEach items="${currentNode.nodes}" var="qcmQuestion">
+				    	<c:if test="${jcr:isNodeType(qcmQuestion,'jnt:qcmQuestion')}">
+				        	<template:module node="${qcmQuestion}" view="default"/>
+				    	</c:if>
+				    </c:forEach>
+				    <c:if test="${renderContext.editMode}">
+		    			<template:module path="*"/>
+					</c:if>			    				
+<c:if test="${not renderContext.editMode}">
+                	<div class="validation"></div>
+                	<br />
+                	<input class="button" type="button" value="Submit" onclick="doQcm($('${currentNode.name}_voteAnswer').value);" />
+            	</form>
+        	</div>
+</c:if>
         </div>
-        </c:if>
         <div id="results_${currentNode.name}"></div>     
     </div>

@@ -13,7 +13,7 @@
     </h3>
 	    <div class="addanswers">
 	        <c:if test="${renderContext.editMode}">
-	        <span>Please, add answers </span>
+	        <span><fmt:message key="label.addAnswer"/></span>
 	        </c:if> 
 	        <c:forEach items="${answerNode.nodes}" var="formElement">
         		<template:module node="${formElement}" editable="true"/>
